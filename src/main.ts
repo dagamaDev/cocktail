@@ -3,7 +3,7 @@ import './style.css'
 import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from './views/Home.vue'
-import Error from './components/404.vue'
+import Error from './views/404.vue'
 import { createPinia } from 'pinia'
 
 
