@@ -59,6 +59,7 @@ watch(
       </div>
       <div class="main__img">
         <img
+          loading="lazy"
           :key="drink.idDrink"
           :src="drink.strDrinkThumb"
           alt=""

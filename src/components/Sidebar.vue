@@ -1,27 +1,31 @@
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 const isLinksVisible = ref(false);
 const toggleLinks = () => {
   isLinksVisible.value = !isLinksVisible.value;
 };
+const navigateToErrorPage = () => {
+  router.push('/Error');
+};
+
+const links = [
+  { text: "Margarita", query: { drink: "Margarita" } },
+  { text: "Mojito", query: { drink: "Mojito" } },
+  { text: "A1", query: { drink: "A1" } },
+  { text: "Kir", query: { drink: "Kir" } },
+];
 </script>
 
 <template>
   <div class="links">
     <div class="links__title">
-      <router-link :to="{ path: '/', query: { drink: 'Margarita' } }"
-        >Margarita</router-link
-      >
-      <router-link :to="{ path: '/', query: { drink: 'Mojito' } }"
-        >Mojito</router-link
-      >
-      <router-link :to="{ path: '/', query: { drink: 'A1' } }">A1</router-link>
-      <router-link :to="{ path: '/', query: { drink: 'Kir' } }"
-        >Kir</router-link
-      >
-      <router-link :to="{ path: '/', query: { drink: '404' } }"
-        >404</router-link
-      >
+      <router-link v-for="(link, index) in links" :key="index" :to="{ path: '/', query: link.query }">
+        {{ link.text }}
+      </router-link>
+      <div class="error" @click="navigateToErrorPage">404</div>
     </div>
     <div class="links__burger" @click="toggleLinks">
       <button>
@@ -71,24 +75,18 @@ const toggleLinks = () => {
       </button>
     </div>
     <div class="media__title">
-      <router-link :to="{ path: '/', query: { drink: 'Margarita' } }"
-        >Margarita</router-link
-      >
-      <router-link :to="{ path: '/', query: { drink: 'Mojito' } }"
-        >Mojito</router-link
-      >
-      <router-link :to="{ path: '/', query: { drink: 'A1' } }">A1</router-link>
-      <router-link :to="{ path: '/', query: { drink: 'Kir' } }"
-        >Kir</router-link
-      >
-      <router-link :to="{ path: '/', query: { drink: '404' } }"
-        >404</router-link
-      >
+      <router-link v-for="(link, index) in links" :key="index" :to="{ path: '/', query: link.query }">
+        {{ link.text }}
+      </router-link>
+      <div class="error" @click="navigateToErrorPage">404</div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+.error{
+  cursor: pointer;
+}
 .links {
   display: flex;
   height: 100vh;

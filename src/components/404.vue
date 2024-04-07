@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Error</h1>
+        <h1>This page is not available</h1>
     </div>
 </template>
 
