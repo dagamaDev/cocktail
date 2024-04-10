@@ -30,7 +30,8 @@ watch(
 
 <template>
   <div class="main">
-    <div
+    {{ cocktailInfo }}
+    <!-- <div
       v-for="drink in cocktailInfo?.drinks"
       :key="drink.idDrink"
       class="main__article"
@@ -66,7 +67,7 @@ watch(
           style="height: 200px"
         />
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

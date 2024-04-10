@@ -1,0 +1,1 @@
+export const baseUrl =  import.meta.env.VUE_APP_API_URL;
